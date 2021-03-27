@@ -1,23 +1,18 @@
 {
   "name": "electron-app-svelte",
   "version": "1.0.0",
-  "description": "A desktop app made with Electron & Svelte.",
+  "main": "index.js",
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "start": "electron .",
-    "package": "npm run build && electron-forge package",
-    "make": "npm run build && electron-forge make"
+    "dist": "npm run build && electron-builder"
   },
   "devDependencies": {
-    "@electron-forge/cli": "^6.0.0-beta.54",
-    "@electron-forge/maker-deb": "^6.0.0-beta.54",
-    "@electron-forge/maker-rpm": "^6.0.0-beta.54",
-    "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
-    "@electron-forge/maker-zip": "^6.0.0-beta.54",
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^11.0.0",
-    "electron": "12.0.1",
+    "electron": "^12.0.2",
+    "electron-builder": "^22.10.5",
     "rollup": "^2.3.4",
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-livereload": "^2.0.0",
@@ -26,35 +21,6 @@
     "svelte": "^3.0.0"
   },
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.0",
     "sirv-cli": "^1.0.0"
-  },
-  "config": {
-    "forge": {
-      "packagerConfig": {},
-      "makers": [
-        {
-          "name": "@electron-forge/maker-squirrel",
-          "config": {
-            "name": "svelte_app"
-          }
-        },
-        {
-          "name": "@electron-forge/maker-zip",
-          "platforms": [
-            "darwin"
-          ]
-        },
-        {
-          "name": "@electron-forge/maker-deb",
-          "config": {}
-        },
-        {
-          "name": "@electron-forge/maker-rpm",
-          "config": {}
-        }
-      ]
-    }
-  },
-  "main": "index.js"
+  }
 }
